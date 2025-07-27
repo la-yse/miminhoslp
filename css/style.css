@@ -1,0 +1,433 @@
+/*--------------------- Reset ---------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+    --purple: #A35DCB;
+    --blue: #2A7F8F;
+    --lime: #C3D07A;
+}
+
+@font-face {
+    font-family: 'Talkine Free';
+    src: url('/assets/fonts/talkine.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--black);
+    background-color: var(--white);
+    line-height: 1.5;
+}
+
+/* --------------------- Background colors --------------------- */
+.bg-blue {
+    background-color: var(--blue);
+}
+
+.bg-white {
+    background-color: var(--white);
+}
+
+.bg-lime {
+    background-color: var(--lime);
+}
+
+.bg-purple {
+    background-color: var(--purple);
+}
+
+/*---------------- Container ----------------*/
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*---------------- Navbar ----------------*/
+.navbar {
+    background-color: var(--white);
+    padding: 1rem 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    color: var(--blue);
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-family: 'Talkine Free', sans-serif;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    list-style: none;
+    display: none;
+    /* escondido no mobile */
+    gap: 2rem;
+}
+
+.nav-links li a {
+    color: var(--black);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Hamburger menu */
+.hamburger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 10;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--black);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Quando o menu estiver ativo (abrir/fechar animação) */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Menu ativo mostra as nav links no mobile */
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: var(--white);
+    width: 200px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 5;
+}
+
+.nav-links.active li {
+    margin-bottom: 1rem;
+}
+
+/*---------------- Hero ----------------*/
+.hero {
+    text-align: center;
+    padding: 1rem 1rem;
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.hero h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.hero p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+    background-color: var(--purple);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+/*---------------- Services Section ----------------*/
+.services {
+    padding-bottom: 30px;
+}
+
+.services h1 {
+    font-family: 'Talkine Free', sans-serif;
+    font-size: 2em;
+    margin-bottom: 0.5rem;
+    padding-top: 2rem;
+    text-align: left;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.services p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    font-weight: normal;
+    color: var(--white);
+}
+
+.services-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.card-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.card-content h3 {
+    font-family: 'Talkine Free', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: var(--black);
+}
+
+.card-content p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: var(--black);
+}
+
+/*---------------- About Section ----------------*/
+.about h1 {
+    font-family: 'Talkine Free', sans-serif;
+    font-size: 2em;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    text-transform: uppercase;
+    color: var(--purple);
+    padding-top: 2rem;
+}
+
+.about p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.about-image {
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.about .btn-primary {
+    display: block;
+    width: fit-content;
+    margin: 2rem auto;
+}
+
+/*---------------- Contact Section ----------------*/
+.contact h1 {
+    font-family: 'Talkine Free', sans-serif;
+    font-size: 2em;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    text-transform: uppercase;
+    padding-top: 2rem;
+    color: var(--blue);
+}
+
+.contact h4 {
+    font-family: 'Lato', sans-serif;
+    font-size: 1em;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    color: var(--black);
+}
+
+.contact p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1em;
+    padding-bottom: 3rem;
+    text-align: left;
+    color: var(--black);
+}
+
+/*---------------- Scroll to Top Button ----------------*/
+
+
+#scrollTopBtn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: none;
+    background-color: var(--purple);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+#scrollTopBtn:hover {
+    background-color: var(--lime);
+    color: var(--black);
+}
+
+
+/*---------------- Footer ----------------*/
+footer {
+    background-color: var(--blue);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+}
+
+/*----------------------- RESPONSIVIDADE -----------------------*/
+
+/* Media Queries - Tablet and Up */
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex !important;
+        flex-direction: row;
+    }
+
+    .services-cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .card {
+        width: 48%;
+    }
+}
+
+/* Media Queries - Desktop and Up */
+@media (min-width: 1024px) {
+    .container {
+        width: 80%;
+    }
+
+    .nav-links {
+        justify-content: flex-end;
+    }
+
+    .nav-links li {
+        margin-left: 3rem;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+    }
+
+    .services h1 {
+        font-size: 2.5rem;
+    }
+
+    .services h2 {
+        font-size: 1.5rem;
+    }
+
+    .about h2 {
+        font-size: 2.5rem;
+    }
+
+    .about p {
+        font-size: 1.25rem;
+        max-width: 700px;
+    }
+
+    .about-image {
+        margin-bottom: 3rem;
+    }
+
+    .services-cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .card {
+        width: 48%;
+    }
+}
