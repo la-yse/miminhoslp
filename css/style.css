@@ -330,8 +330,8 @@ body {
     bottom: 40px;
     right: 40px;
     display: none;
-    background-color: var(--purple);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--black);
     border: none;
     border-radius: 50%;
     width: 45px;
@@ -341,11 +341,6 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease;
     z-index: 1000;
-}
-
-#scrollTopBtn:hover {
-    background-color: var(--lime);
-    color: var(--black);
 }
 
 
